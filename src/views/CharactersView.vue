@@ -1,6 +1,10 @@
 <template>
   <v-container class="characters-view">
-    <h1 class="text-center mt-md-14 mt-sm-10 mb-md-10">Who do you wanna find?</h1>
+    <h1
+      class="characters-view__title text-center mt-md-14 mt-sm-10 mb-md-10"
+    >
+      Who do you wanna find?
+    </h1>
     <v-row>
       <v-col
         md="4"
@@ -150,6 +154,9 @@ export default {
 .characters-view
   &__loading-container
     margin-top 320px
+  &__title
+    &.dark-mode
+      color: white
 .pagination
   margin: 40px 0
 </style>

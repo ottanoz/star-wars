@@ -76,8 +76,10 @@ export default {
 
 <style lang="stylus" scoped>
 .pagination
-  .v-btn
+  .theme--light.v-btn
     margin: 0 2px
+    &--disabled
+      background-color: #E0E0E0 !important
   &--active
     background-color: sw-yellow !important
     pointer-events: none;
@@ -85,7 +87,7 @@ export default {
     display: none
 @media screen and (max-width: 480px)
   .pagination
-    .v-btn
+    .theme--light.v-btn
       height 48px
       width: 96px
     &__page

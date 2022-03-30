@@ -1,2 +1,22 @@
+app-bar-color = #272727
 sw-yellow = #feda4a
 sw-black = #0a0b0b
+main-bg-color = #ECEFF1
+dark-mode-primary-color = #212121
+dark-mode-secondary-color = #757575
+
+// Dark mode
+.main-content
+    &.dark-mode
+        background-color: dark-mode-primary-color
+        .characters-view
+            &__title
+                color: white !important
+        .v-breadcrumbs
+            &__item
+            &__divider
+                color: white !important
+        .character-details
+            &__films
+            &__year
+                color: white !important

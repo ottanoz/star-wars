@@ -5,6 +5,7 @@ import router from './router';
 import store from './store';
 import vuetify from './plugins/vuetify';
 import './filters/filters';
+import './directives/directives';
 
 import './assets/sass/main.styl';
 

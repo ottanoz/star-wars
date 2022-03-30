@@ -10,6 +10,7 @@
     <v-breadcrumbs
       :items="breadcrumbs"
       divider="/"
+      class="character-details__breadcrumb"
     >
     </v-breadcrumbs>
     <v-card
@@ -56,7 +57,7 @@
       </v-img>
     </v-card>
 
-    <h2 class="text-center mt-10 mb-8">Films</h2>
+    <h2 class="character-details__films text-center mt-10 mb-8">Films</h2>
 
     <v-timeline class="films-timeline mx-md-6 d-none d-sm-block">
       <v-timeline-item
@@ -67,7 +68,7 @@
       >
         <template v-slot:opposite>
           <span
-            :class="`headline font-weight-bold`"
+            class="character-details__year headline font-weight-bold"
           >{{ film.release_date | yearFromData }}</span>
         </template>
         <v-card class="elevation-2">
@@ -108,7 +109,7 @@
       <v-card-text   class="py-0">
         {{ film.producer }}
       </v-card-text>
-      <v-card-text>
+      <v-card-text class="film-cards__opening">
         {{ film.opening_crawl }}
       </v-card-text>
     </v-card>
@@ -194,4 +195,6 @@ export default {
   .film-cards
     &__title
       font-size: unit(20/16, 'rem') !important
+    &__opening
+      text-align: justify;
 </style>

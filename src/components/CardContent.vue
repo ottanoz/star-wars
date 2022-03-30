@@ -10,7 +10,7 @@
     </v-img>
     <v-card-subtitle class="card-content__subtitle">{{ description }}</v-card-subtitle>
     <v-divider class="mx-4"></v-divider>
-    <v-card-text>
+    <v-card-text class="card-content__text">
       <div class="mb-2">
         Height: {{ character.height | heightFormatted }} <br>
         Weight: {{ character.mass }}kg
@@ -72,6 +72,8 @@ export default {
   &__button
     &:hover
       color: sw-yellow
+  &.dark-mode
+    background-color: black
 
 @media screen and (min-width: 1600px)
   .card-content

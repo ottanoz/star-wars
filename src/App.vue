@@ -7,29 +7,32 @@
       class="app-bar"
     >
       <div class="d-flex align-center">
-        <v-img
-          alt="Star Wars Logo"
-          class="shrink mr-2"
-          contain
-          src="./assets/star-wars-logo.png"
-          transition="scale-transition"
-          width="100"
-        />
+        <router-link to="/">
+          <v-img
+            alt="Star Wars Logo"
+            class="shrink mr-2"
+            contain
+            src="./assets/star-wars-logo.png"
+            transition="scale-transition"
+            width="100"
+          />
+        </router-link>
       </div>
 
       <v-spacer></v-spacer>
 
-      <v-btn
-        href="https://github.com/ottanoz/star-wars"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Github</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+      <v-switch
+        v-model="toggleDarkMode"
+        inset
+        label="Dark mode"
+        class="mt-5"
+      ></v-switch>
     </v-app-bar>
 
-    <v-main class="blue-grey lighten-5">
+    <v-main
+      v-dark-mode
+      class="main-content"
+    >
       <router-view/>
     </v-main>
 
@@ -57,13 +60,25 @@ export default {
 
   data() {
     return {
-      drawer: null,
+      toggleDarkMode: false,
     };
+  },
+
+  mounted() {
+    this.toggleDarkMode = localStorage.getItem('toggleDarkMode') === 'true';
+  },
+
+  watch: {
+    toggleDarkMode(value) {
+      localStorage.setItem('toggleDarkMode', value);
+    },
   },
 };
 </script>
 
 <style lang="stylus" scoped>
 .app-bar
-  background-color: sw-black
+  background-color: app-bar-color !important
+.main-content
+  background-color: main-bg-color
 </style>
