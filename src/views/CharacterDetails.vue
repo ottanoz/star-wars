@@ -13,49 +13,8 @@
       class="character-details__breadcrumb"
     >
     </v-breadcrumbs>
-    <v-card
-      class="mx-md-6"
-    >
-      <v-img
-        height="256"
-        src="../assets/bg-details.jpg"
-        class="character-details__card-image fill-height"
-      >
-        <v-row
-          align="end"
-          class="character-details__card-row fill-height"
-        >
-          <v-col
-            align-self="start"
-            md="10"
-            class="character-details__card-col"
-          >
-            <v-avatar
-              class="character-details__profile"
-              size="120"
-            >
-              <v-img src="../assets/profile.jpg" contain></v-img>
-            </v-avatar>
-            <v-card-title
-              class="character-details__card-title pl-0"
-            >
-              {{ character.name }}
-            </v-card-title>
-            <v-card-subtitle
-              class="character-details__card-subtitle pl-0"
-            >{{ character.homeworld }}</v-card-subtitle>
-          </v-col>
-          <v-col
-            md="2"
-            class="align-self-start align-self-sm-end"
-          >
-            <v-card-subtitle
-              class="character-details__card-subtitle character-details__card-subtitle--right pl-0"
-            >{{ description }}</v-card-subtitle>
-          </v-col>
-        </v-row>
-      </v-img>
-    </v-card>
+
+    <CardCharacterDetails :character="character" />
 
     <h2 class="character-details__films text-center mt-10 mb-8">Films</h2>
 
@@ -118,12 +77,14 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import descriptionMixin from '@/mixins/descriptionMixin';
+import CardCharacterDetails from '../components/CardCharacterDetails.vue';
 
 export default {
   name: 'CharacterDetails',
 
-  mixins: [descriptionMixin],
+  components: {
+    CardCharacterDetails,
+  },
 
   computed: {
     ...mapGetters([
@@ -169,29 +130,8 @@ export default {
 .characters-loading
   &__circle
     margin-top 128px
-.character-details
-  &__card-image
-    padding: 24px;
-  &__profile
-    margin-top 18px
-  &__card-title
-    color: white
-  &__card-subtitle
-    color: rgba(256, 256, 256, 0.8)
-    font-style: italic
-    &--right
-      text-align: right;
-    &:first-letter
-      text-transform: capitalize
 
 @media screen and (max-width: 480px)
-  .character-details
-    &__card-title
-      color: white
-      font-size: unit(16/16, 'rem')
-    &__card-subtitle
-      color: white
-      font-size: unit(14/16, 'rem')
   .film-cards
     &__title
       font-size: unit(20/16, 'rem') !important
