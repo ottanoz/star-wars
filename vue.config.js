@@ -19,4 +19,11 @@ module.exports = defineConfig({
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
     types.forEach((type) => addStyleResource(config.module.rule('stylus').oneOf(type)));
   },
+  pwa: {
+    name: 'Star Wars Vue',
+    themeColor: '#272727',
+    msTileColor: '#000000',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+  },
 });
