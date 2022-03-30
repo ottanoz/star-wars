@@ -10,7 +10,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    characters: [],
+    characters: {
+      count: 0,
+      results: [],
+    },
     characterDetails: {},
     loadingCharacters: false,
   },
